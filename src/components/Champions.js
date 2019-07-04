@@ -2,14 +2,13 @@ import React from 'react';
 
 import DetailChampion from './DetailChampion'
 import {myStore} from '../index'
-import {champions} from '../data/ChampionData'
+import {championSkill} from '../data/ChampionData'
 
 const Champions = ()=>{
     const state = myStore.getState().champions
-    console.log(state)
     const getImage = (ck)=>{
         return ck.map((e ,i)=>{
-            return <DetailChampion dData ={champions[i]} data = {e} key = {i}/>
+            return <DetailChampion dData ={championSkill[e.id]} data = {e} key = {i}/>
         })
     }   
     return(

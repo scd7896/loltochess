@@ -1,0 +1,10 @@
+.left{
+    display: inline-block;
+    float : left;
+    width : 30%
+}
+.right{
+    float : right;
+    margin-right: 10px;
+    width : 65%;
+}

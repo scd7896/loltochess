@@ -4,7 +4,7 @@ import ChampionContent from './ChampionContent'
 
 
 import '../css/DetailChampion.css'
-const DetailChampion=({data, dData})=>{
+const DetailChampion=({data})=>{
     const imgUrl =`https://ddragon.leagueoflegends.com/cdn/9.12.1/img/champion/${data.image.full}`
     const [open, setOpen] =useState(false);
     const clickHandle = ()=>{
@@ -14,7 +14,7 @@ const DetailChampion=({data, dData})=>{
         <div className = 'oneBox'>
             <img onClick = {clickHandle} src ={imgUrl} alt ='이미지 불러오기 실패'/>
             <p>이름 :{data.name}</p>
-            <ChampionContent open = {open} dData={dData} data ={data} onCreate ={clickHandle}/>
+            <ChampionContent open = {open} data ={data} onCreate ={clickHandle}/>
         </div>
     )
 }
