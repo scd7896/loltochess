@@ -1,6 +1,8 @@
 import React from 'react';
+import {useState} from 'react';
 import '../css/ChampionContent.css'
 import {championSkill} from '../data/ChampionData'
+import {myStore} from '../index'
 
 import { makeStyles } from '@material-ui/styles';
 import Dialog from '@material-ui/core/Dialog'
@@ -20,6 +22,12 @@ import TableCell from '@material-ui/core/TableCell'
     }
  })
  const ChampionContent =(props)=>{
+    const championStatus = myStore.getState().championStatus
+    const [status, setStatus] = useState()
+    championStatus.then((value)=>{
+        setStatus(value[props.data.id])
+    })
+    console.log(status ? status : '');
     const classes = useStyles();
     const assign = props.data.id + championSkill[props.data.id].skill
     
@@ -72,21 +80,20 @@ import TableCell from '@material-ui/core/TableCell'
                     <Table style = {styles}>
                         <TableBody>
                             <TableRow>
-                                <TableCell>체력</TableCell>
-                                <TableCell>방어력</TableCell>
                                 <TableCell>공격력</TableCell>
-                                <TableCell>공격사거리</TableCell>
                                 <TableCell>공격속도</TableCell>
                                 <TableCell>DPS</TableCell>
-                            
+                                <TableCell>공격사거리</TableCell>
+                                <TableCell>체력</TableCell>
+                                <TableCell>방어력</TableCell>
                             </TableRow>
                             <TableRow>
-                                <TableCell>850</TableCell>
-                                <TableCell>35</TableCell>
-                                <TableCell>45</TableCell>
-                                <TableCell>4</TableCell>
-                                <TableCell>0.7</TableCell>
-                                <TableCell>32</TableCell>
+                                <TableCell>{status ? status.stats.offense.damage:''}</TableCell>
+                                <TableCell>{status ? status.stats.offense.attackSpeed:''}</TableCell>
+                                <TableCell>{status ? status.stats.offense.dps:''}</TableCell>
+                                <TableCell>{status ? status.stats.offense.range:''}</TableCell>
+                                <TableCell>{status ? status.stats.defense.health:''}</TableCell>
+                                <TableCell>{status ? status.stats.defense.armor:''}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>마법저항력</TableCell>
@@ -97,12 +104,12 @@ import TableCell from '@material-ui/core/TableCell'
                                 <TableCell>시작마나</TableCell>
                             </TableRow>
                             <TableRow>
-                                <TableCell>전사</TableCell>
-                                <TableCell>녹서스</TableCell>
-                                <TableCell>3</TableCell>
-                                <TableCell>100</TableCell>
-                                <TableCell>0</TableCell>
-                                <TableCell>20</TableCell>
+                                <TableCell>{status ? status.stats.defense.magicResist:''}</TableCell>
+                                <TableCell>{status ? status.class[0]:''}</TableCell>
+                                <TableCell>{status ? status.origin[0]:''}</TableCell>
+                                <TableCell>{status ? status.cost:''}</TableCell>
+                                <TableCell>{status ? status.ability.manaCost:''}</TableCell>
+                                <TableCell>{status ? status.ability.manaStart:''}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>

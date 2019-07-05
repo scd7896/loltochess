@@ -5,6 +5,12 @@ const returnChamp = async(name) =>{
     const body = res.json()
     return body;
 } 
+const getStatus = async() =>{
+    const res = await fetch(`https://solomid-resources.s3.amazonaws.com/blitz/tft/data/champions.json`)
+    const body = await res.json();
+    
+    return body;
+} 
 
 const getChampions=(temp)=>{
     for(let i = 0 ; i<championName.length; i++){
@@ -12,12 +18,12 @@ const getChampions=(temp)=>{
             temp.push(res.data[championName[i]])
         })
     }
-    
 }
 
 const setInit = ()=>{
     const initState = {
         champions : [],
+        championStatus : getStatus(),
         mode : 'all',
         serchName : ''
     }
@@ -30,6 +36,7 @@ const setInit = ()=>{
 써야하는 부분에서 전혀 못쓰고 헤매고 있습니다.*/
 const championStore =(state = setInit(), action) => {
     let newState = {};
+    
     switch(action.type){
         case 'SERCH_ALL':
             newState = Object.assign({},state,{
@@ -47,7 +54,6 @@ const championStore =(state = setInit(), action) => {
             newState = Object.assign({},state,{
                 champions : action.data
             })
-            console.log(newState.champions)
             return newState;
         default :
             return state;    
