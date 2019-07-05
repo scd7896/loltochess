@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import '../css/ChampionContent.css'
-import {championSkill} from '../data/ChampionData'
+import {championSkill , className, originName} from '../data/ChampionData'
 import {myStore} from '../index'
 
 import { makeStyles } from '@material-ui/styles';
@@ -64,6 +64,19 @@ import TableCell from '@material-ui/core/TableCell'
             spellImg = skillUrl+assign+png    
             break;
     }
+
+    const valueCall = (arr, type)=>{
+        if(arr.length === 2){
+            return (
+                <TableCell>{type[arr[0]]}, {type[arr[1]]}</TableCell>
+            )
+        } 
+        else{
+            return(
+                <TableCell>{type[arr[0]]}</TableCell>
+            )
+        }
+    }
     return(
         <Dialog fullScreen open = {props.open} className={classes.root}>
             <DialogTitle>
@@ -83,7 +96,7 @@ import TableCell from '@material-ui/core/TableCell'
                                 <TableCell>공격력</TableCell>
                                 <TableCell>공격속도</TableCell>
                                 <TableCell>DPS</TableCell>
-                                <TableCell>공격사거리</TableCell>
+                                <TableCell>사거리</TableCell>
                                 <TableCell>체력</TableCell>
                                 <TableCell>방어력</TableCell>
                             </TableRow>
@@ -96,7 +109,7 @@ import TableCell from '@material-ui/core/TableCell'
                                 <TableCell>{status ? status.stats.defense.armor:''}</TableCell>
                             </TableRow>
                             <TableRow>
-                                <TableCell>마법저항력</TableCell>
+                                <TableCell>마법저항</TableCell>
                                 <TableCell>직업</TableCell>
                                 <TableCell>종족</TableCell>
                                 <TableCell>가격</TableCell>
@@ -105,8 +118,8 @@ import TableCell from '@material-ui/core/TableCell'
                             </TableRow>
                             <TableRow>
                                 <TableCell>{status ? status.stats.defense.magicResist:''}</TableCell>
-                                <TableCell>{status ? status.class[0]:''}</TableCell>
-                                <TableCell>{status ? status.origin[0]:''}</TableCell>
+                                <TableCell>{status ? valueCall(status.class, className):''}</TableCell>
+                                <TableCell>{status ? valueCall(status.origin, originName):''}</TableCell>
                                 <TableCell>{status ? status.cost:''}</TableCell>
                                 <TableCell>{status ? status.ability.manaCost:''}</TableCell>
                                 <TableCell>{status ? status.ability.manaStart:''}</TableCell>

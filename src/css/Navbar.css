@@ -4,9 +4,10 @@ nav {
     display : flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 10vh;
     background-color: darkblue;
     font-style:italic;
+    margin: 0;
+    padding : 0;
     color: yellow;
 }
 

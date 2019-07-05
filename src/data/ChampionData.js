@@ -6,6 +6,34 @@ export const championName = [
     ,'Ashe','Yasuo','Elise','Warwick','Evelynn','Zed','Chogath','Kassadin','Karthus',
     'Khazix','Katarina','Kennen','Kayle','Kindred','Tristana','Pyke','Fiora'
 ]
+
+export const originName={
+    'Noble': '귀족',
+    'Ninja': '닌자',
+    'Pirate':'해적',
+    'Wild' :'야생',
+    'Yordle' :'요들',
+    'Imperial': '제국',
+    'Exile' : '추방자',
+    'Glacial' :'빙하',
+    'Demon' :'악마',
+    'Phantom' : '유령',
+    'Void' : '공허',
+    'Robot': '로봇'
+}
+export const className = {
+    'Gunslinger' :'총잡이',
+    'Blademaster' : '검사',
+    'Knight' : '기사',
+    'Shapeshifter' : '형상변환자',
+    'Assassin' : '암살자',
+    'Elementalist' : '정령',
+    'Sorcerer' : '마법사',
+    'Guardian' : '수호자',
+    'Brawler' : '싸움꾼',
+    'Ranger' : '정찰자'
+
+}
 export const championSkill = {'Garen':{
         id : 'Garen',
         skill : 'E'
