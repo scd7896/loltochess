@@ -1,0 +1,21 @@
+
+p{
+    text-align: center;
+    color : white;
+}
+
+
+
+.imgContaner{
+    display: table-cell;
+    vertical-align: middle;
+    background-color: gray;
+    width: 2000px;
+    height: 150px;
+    
+}
+
+.imgContaner > img {
+    height: 50px;
+    width : 50px;
+}

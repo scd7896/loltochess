@@ -1,9 +1,9 @@
 import React from 'react';
 import SynergySelected from './SynergySelected'
-
+import '../css/Synergy.css'
 const Synergy = () =>{
     return(
-        <div>
+        <div className='SynergyContaner'>
             <SynergySelected />
         </div>
     )

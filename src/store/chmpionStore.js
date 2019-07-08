@@ -56,6 +56,24 @@ const championStore =(state = setInit(), action) => {
                 champions : action.data
             })
             return newState;
+        case 'ADD_LIST':
+            const tempState = {...state}
+            const tempList = tempState.selected.concat()
+            tempList.push(action.championId)
+            newState = Object.assign({},state,{
+                selected : tempList
+            })
+            return newState;
+        case 'DELETE_LIST':
+                const aliveList = state.selected.filter((e)=>{ 
+                    return e !== action.championId
+                })
+                newState = Object.assign({}, state, {
+                    selected : aliveList
+                })
+                
+            return newState
+
         default :
             return state;    
     }
