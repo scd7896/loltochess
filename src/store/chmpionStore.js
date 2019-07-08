@@ -25,7 +25,8 @@ const setInit = ()=>{
         champions : [],
         championStatus : getStatus(),
         mode : 'all',
-        serchName : ''
+        serchName : '',
+        selected : ['Aatrox', 'Graves']
     }
     getChampions(initState.champions)
     return initState

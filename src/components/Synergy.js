@@ -1,10 +1,10 @@
 import React from 'react';
-
+import SynergySelected from './SynergySelected'
 
 const Synergy = () =>{
     return(
         <div>
-            시너지 구분 리스트
+            <SynergySelected />
         </div>
     )
 }
