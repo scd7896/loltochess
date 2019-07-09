@@ -14,8 +14,16 @@ p{
     height: 150px;
     
 }
-
-.imgContaner > img {
+.imgContaner > img{
+    height: 50px;
+    width : 50px;
+}
+.opa20 {
+    height: 50px;
+    width : 50px;
+    opacity: 0.2;
+}
+.opa100 {
     height: 50px;
     width : 50px;
 }
